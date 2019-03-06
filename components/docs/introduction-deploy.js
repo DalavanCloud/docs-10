@@ -9,11 +9,13 @@ const example = {
   name: 'simple-now-deployment',
   files: {
     'index.html':
-      '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/api">ZEIT\'s Now API</a>!</p>\n  </body>\n</html>',
+      '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/api">ZEIT\'s Now API</a>!</p>\n    <p><a href="/date.js">Check the Date</a></p> \n </body>\n</html>',
+    'style.css':
+      'h1 {\n margin-top: 70px; \n text-align: center; \n font-size: 45px; \n} \n h1, p {\n font-family: Helvetica; \n} \n p {\n text-align: center; \n font-size: 30px; \n}',
     'date.js':
       'module.exports = (req, res) => {\n  res.end(`The time is ${new Date()}`)\n}',
     'now.json':
-      '{\n   "version": 2, \n   "builds": [\n      { "src": "*.js", "use": "@now/node" },\n      { "src": "*.html", "use": "@now/static" }\n   ] \n}'
+      '{\n   "version": 2, \n   "builds": [\n      { "src": "*.js", "use": "@now/node" },\n      { "src": "*.html", "use": "@now/static" },\n      { "src": "*.css", "use": "@now/static" } \n  ] \n}'
   }
 }
 
